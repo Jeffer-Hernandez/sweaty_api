@@ -5,8 +5,5 @@ class Api::V1::BoardsController < ApplicationController
         render json: boards
     end
 
-    
-
-    
 
 end

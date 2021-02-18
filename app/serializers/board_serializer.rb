@@ -1,4 +1,4 @@
 class BoardSerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  attributes :title
 end

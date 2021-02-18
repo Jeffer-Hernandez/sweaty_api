@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :boards, only: [:index]
       resources :discussions, only: [:index, :create]
+      resources :users, only: [:index, :create, :update]
+      resources :comments, only: [:index, :create, :update, :destroy]
     end
   end
 end

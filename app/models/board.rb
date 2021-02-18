@@ -1,3 +1,3 @@
 class Board < ApplicationRecord
-    has_many discussions
+    has_many :discussions
 end

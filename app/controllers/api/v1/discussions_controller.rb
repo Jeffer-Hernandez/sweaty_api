@@ -2,12 +2,12 @@ class Api::V1::DiscussionsController < ApplicationController
 
     def index
         discussion = Discussion.all
-        render json: discussion
+        render json: DiscussionSerializer.new(discussion)
     end
 
     def create
         discussion = Discussion.new(discussion_params)
-        
+
         if discussion.save
             render json: discussion, status: :accepted
         else

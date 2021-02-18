@@ -15,12 +15,6 @@ class Api::V1::CommentsController < ApplicationController
         end
     end
 
-    def update
-    end
-
-    def destroy
-    end
-
     private
 
     def comments_params

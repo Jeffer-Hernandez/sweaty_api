@@ -6,19 +6,19 @@ class Api::V1::CommentsController < ApplicationController
     end
 
     def create
-        comment = Comment.new
-
+        comment = Comment.new(comment_params)
+  
         if comment.save
             render json: comment, status: :accepted
         else
-            render json: {errors: discussion.errors.full_messages}, status: :unproce
+            render json: {errors: discussion.errors.full_messages}, status: :unprocessable_entity
         end
     end
 
     private
 
-    def comments_params
-        params.require(comments).permit(:content, :user_id, :discussion_id)
+    def comment_params
+        params.require(:comment).permit(:content, :user_id, :discussion_id)
     end
 
     

@@ -11,9 +11,20 @@ class Api::V1::CommentsController < ApplicationController
         if comment.save
             render json: CommentSerializer.new(comment), status: :accepted
         else
-            render json: {errors: discussion.errors.full_messages}, status: :unprocessable_entity
+            render json: {errors: comment.errors.full_messages}, status: :unprocessable_entity
         end
     end
+
+    def update
+        comment = Comment.find_by(id: params[:id])
+     
+        if @competition.update(comment_params)
+          render json: CommentSerializer.new(comment), status: :accepted
+        else
+            render json: {errors: comment.errors.full_messages}, status: :unprocessable_entity
+        end
+    end
+
 
     private
 
